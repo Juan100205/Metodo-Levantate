@@ -29,6 +29,13 @@ html {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
+  font-size: 87.5%; /* zoom out global en mobile */
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 85%;
+  }
 }
 
 body {
