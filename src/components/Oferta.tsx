@@ -56,7 +56,7 @@ export default function Oferta() {
                             Ahorras más de $40 <span className="opacity-75">Solo por tiempo limitado</span>
                         </p>
                         <motion.a
-                            href="https://building-empiress.systeme.io/checkout-levantate"
+                            href="https://academy.rebuildingempiress.com/checkout-levantate"
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.03, y: -2, boxShadow: '0 14px 32px -4px rgba(251,111,146,0.5)' }}

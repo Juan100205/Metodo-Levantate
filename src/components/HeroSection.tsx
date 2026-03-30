@@ -50,7 +50,7 @@ export default function Hero() {
                     variants={fadeUp}
                     whileHover={{ scale: 1.03, y: -2 }}
                     whileTap={{ scale: 0.97 }}
-                    href="https://building-empiress.systeme.io/checkout-levantate"
+                    href="https://academy.rebuildingempiress.com/checkout-levantate"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 px-8 py-3 md:py-2 bg-[#FB6F92] text-white font-cormorant font-bold text-lg md:text-xl rounded-full cursor-pointer shadow-[0_2px_6px_rgba(0,0,0,0.2)] hover:shadow-[0_6px_20px_rgba(251,111,146,0.45)] transition-shadow duration-300"

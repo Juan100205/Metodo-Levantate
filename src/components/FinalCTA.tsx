@@ -42,7 +42,7 @@ export default function FinalCTA() {
 
                 <motion.a
                     variants={fadeUp}
-                    href="https://building-empiress.systeme.io/checkout-levantate"
+                    href="https://academy.rebuildingempiress.com/checkout-levantate"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.04, y: -3, boxShadow: '0 16px 36px -4px rgba(251,111,146,0.55)' }}
