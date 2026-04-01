@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { useSnapSection } from "../hooks/useSnapSection"
 import { staggerContainer, fadeUp } from "../lib/animations"
+import ProductImg from "../assets/Levantate_imagen.png"
 
 const faqs = [
     { question: "¿Cómo recibo el producto después de comprar?", answer: <>Inmediatamente después de confirmar tu pago <span className="text-[#FB6F92] font-bold">recibirás acceso</span> a todos los archivos del kit, el eBook y las 5 plantillas. <span className="text-[#FB6F92] font-bold">Es todo digital</span>, nada físico que esperar.</> },
@@ -22,7 +23,7 @@ export default function Preguntas() {
             className="w-full flex flex-col items-center justify-center text-center px-6 py-12 md:py-20"
         >
             <motion.div
-                className="max-w-4xl flex flex-col items-center w-full"
+                className="max-w-6xl flex flex-col items-center w-full"
                 variants={staggerContainer}
                 initial="hidden"
                 animate={isActive ? "visible" : "hidden"}
@@ -36,44 +37,64 @@ export default function Preguntas() {
                     <span className="font-amoresa font-light text-[#FB6F92] drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)]">saber antes de comprar</span>
                 </motion.h2>
 
-                <motion.div variants={staggerContainer} className="w-full flex flex-col gap-4">
-                    {faqs.map((faq, i) => (
-                        <motion.div key={i} variants={fadeUp} className="bg-[#FADADD] rounded-2xl shadow-sm overflow-hidden text-left">
-                            <button
-                                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                className="w-full flex justify-between items-center px-5 py-4 md:px-8 md:py-6 cursor-pointer focus:outline-none group"
-                            >
-                                <span className="font-cormorant text-[1.2rem] text-neutral-800 group-hover:text-[#1a1a1a] transition-colors">
-                                    {faq.question}
-                                </span>
-                                <motion.span
-                                    animate={{ rotate: openIndex === i ? 180 : 0 }}
-                                    transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                                    className="text-[#FB6F92] text-xs ml-4 flex-shrink-0"
+                {/* Layout dos columnas */}
+                <div className="w-full flex flex-col md:flex-row items-start gap-10 md:gap-14">
+
+                    {/* Columna FAQs */}
+                    <motion.div variants={staggerContainer} className="flex-1 flex flex-col gap-4 w-full">
+                        {faqs.map((faq, i) => (
+                            <motion.div key={i} variants={fadeUp} className="bg-[#FADADD] rounded-2xl shadow-sm overflow-hidden text-left">
+                                <button
+                                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                                    className="w-full flex justify-between items-center px-5 py-4 md:px-8 md:py-6 cursor-pointer focus:outline-none group"
                                 >
-                                    ▼
-                                </motion.span>
-                            </button>
-                            <AnimatePresence initial={false}>
-                                {openIndex === i && (
-                                    <motion.div
-                                        key="answer"
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                                        style={{ overflow: 'hidden' }}
+                                    <span className="font-cormorant text-[1.2rem] text-neutral-800 group-hover:text-[#1a1a1a] transition-colors">
+                                        {faq.question}
+                                    </span>
+                                    <motion.span
+                                        animate={{ rotate: openIndex === i ? 180 : 0 }}
+                                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                                        className="text-[#FB6F92] text-xs ml-4 flex-shrink-0"
                                     >
-                                        <div className="px-5 pb-4 md:px-8 md:pb-6">
-                                            <div className="border-t border-pink-300/60 mb-5" />
-                                            <p className="font-cormorant text-[1.15rem] leading-relaxed text-neutral-800">{faq.answer}</p>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                                        ▼
+                                    </motion.span>
+                                </button>
+                                <AnimatePresence initial={false}>
+                                    {openIndex === i && (
+                                        <motion.div
+                                            key="answer"
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+                                            style={{ overflow: 'hidden' }}
+                                        >
+                                            <div className="px-5 pb-4 md:px-8 md:pb-6">
+                                                <div className="border-t border-pink-300/60 mb-5" />
+                                                <p className="font-cormorant text-[1.15rem] leading-relaxed text-neutral-800">{faq.answer}</p>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    {/* Columna imagen */}
+                    <motion.div
+                        variants={fadeUp}
+                        className="w-full md:w-[340px] flex-shrink-0 flex justify-center md:sticky md:top-32"
+                    >
+                        <div className="w-full max-w-[280px] md:max-w-full rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(251,111,146,0.25),0_8px_24px_rgba(0,0,0,0.12)]">
+                            <img
+                                src={ProductImg}
+                                alt="Método Levántate — cuadernos de transformación personal"
+                                className="w-full object-cover scale-[1.15]"
+                            />
+                        </div>
+                    </motion.div>
+
+                </div>
             </motion.div>
         </section>
     )
