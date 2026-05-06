@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import solucionImg from "../assets/HowTo.png"
 import { useSnapSection } from "../hooks/useSnapSection"
 import { staggerContainer, fadeUp, fadeRight } from "../lib/animations"
 
@@ -41,12 +40,12 @@ export default function Solucion() {
                         ))}
                     </motion.div>
 
-                    <motion.img
+                    <motion.div
                         variants={fadeRight}
-                        src={solucionImg}
-                        alt="La Solución"
-                        className="w-full max-w-xs md:max-w-none md:w-1/2 object-contain rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
-                    />
+                        className="w-full max-w-xs md:max-w-none md:w-1/2 rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+                    >
+                        <wistia-player media-id="6h8n1ucqtm" aspect="1.7777777777777777" />
+                    </motion.div>
                 </div>
             </motion.div>
         </section>

@@ -57,6 +57,7 @@ export default function Hero() {
                 >
                     QUIERO LEVANTARME
                 </motion.a>
+
             </motion.div>
         </section>
     )

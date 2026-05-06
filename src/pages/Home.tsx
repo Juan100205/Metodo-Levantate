@@ -1,4 +1,5 @@
 import Hero from "../components/HeroSection";
+import Contenido from "../components/Contenido";
 import Identificacion from "../components/Identificacion";
 import Solucion from "../components/Solucion";
 import LoQueRecibes from "../components/LoQueRecibes";
@@ -11,6 +12,7 @@ export default function Home() {
     return (
         <main className="w-full flex flex-col">
             <Hero />
+            <Contenido />
             <Identificacion />
             <Solucion />
             <LoQueRecibes />
